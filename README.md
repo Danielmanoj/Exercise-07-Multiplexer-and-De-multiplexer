@@ -47,23 +47,68 @@ If the control input changes to AB = 10, then all the gates are restricted excep
  
  
 ### Procedure
-/* write all the steps invloved */
+step1: Create a project with required entities.
+
+step2: Create a module along with respective file name for both Multiplexer and De-multiplexer.
+
+step3: Run the module and get the respective RTL outputs.
+
+step4: Create university program(VWF) for getting timing diagram.
+
+step5: Give the respective inputs for timing diagram and obtain the results.
 
 
 
 ### PROGRAM 
-/*
+```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: MANOJ G
+RegisterNumber:  212222240060
+```
 
+## 4-1 MULTIPLEXER
+```
+module mux(i0, i1, i2, i3, s0, s1, y);
+input i0, i1, i2, i3, s0, s1;
+output y;
+wire p, q, r, s, s0c, s1c;
+not(s0c, s0);
+nor(s1c, s1);
+and(p, s0c, s1c, i0);
+and(q, s0c, s1, i1);
+and(r, s0, s1c, i2);
+and(s, s0, s1, i3);
+or(y, p, q, r, s);
+endmodule
+```
 
+### 1-4 DEMULTIPLEXER
+```
+module demux(y0, y1, y2, y3, s0, s1, i);
+input s0, s1, i;
+output y0, y1, y2, y3;
+wire s0c, s1c;
+nor(s0c, s0);
+nor(s1c, s1);
+and(y0, i, s0c, s1);
+and(y1, i, s0c, s1c);
+and(y2, i, s0, s1c);
+and(y3, i, s0, s1);
+endmodule
+```
 
 
 
 
 ### RTL LOGIC  
+
+## MULTIPLEXER
+![239728640-74e3ecaf-eeca-4751-ad97-f462a09dfd08](https://github.com/Danielmanoj/Exercise-07-Multiplexer-and-De-multiplexer/assets/69635071/f979c87a-6c12-4254-a4c0-226cd300f791)
+
+
+## DEMULTIPLEXER
+
+![239728691-2c5aa3de-e595-4272-8b98-d72c80a5bad8](https://github.com/Danielmanoj/Exercise-07-Multiplexer-and-De-multiplexer/assets/69635071/2da1dff4-dc77-4d06-a32f-d7f24fd6f3cc)
 
 
 
@@ -74,11 +119,29 @@ RegisterNumber:
 
 ### TIMING DIGRAMS  
 
+## MULTIPLEXER
+
+![239728736-6d369922-be15-46d9-9b59-c4b2483606c0](https://github.com/Danielmanoj/Exercise-07-Multiplexer-and-De-multiplexer/assets/69635071/38c40554-02f7-4031-b87e-34b5837a0b47)
+
+
+## DEMULTIPLEXER
+
+![239728781-764d4506-8ddf-4277-8c50-77f0d1abc803](https://github.com/Danielmanoj/Exercise-07-Multiplexer-and-De-multiplexer/assets/69635071/cd52ddc2-bc6b-4727-8f49-ad011254cded)
+
+
 
 
 
 
 ### TRUTH TABLE 
+## MULTIPLEXER
+
+![239728829-877a2f4a-7678-479f-924c-2896e8162e6a](https://github.com/Danielmanoj/Exercise-07-Multiplexer-and-De-multiplexer/assets/69635071/134dff1b-a304-4612-bd81-b8c944adc309)
+
+## DEMULTIPLEXER
+
+![239728850-0d4bfe69-b121-491f-beb8-688a9ac53a0f](https://github.com/Danielmanoj/Exercise-07-Multiplexer-and-De-multiplexer/assets/69635071/d9983db8-fff9-45d2-8531-7e04d901f77a)
+
 
 
 
@@ -86,3 +149,4 @@ RegisterNumber:
 
 
 ### RESULTS 
+Thus the implementation of Multiplexer and Demultiplexer are verified.
